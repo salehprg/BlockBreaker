@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
 
-        
         Vector3 movement = new Vector3(x, 0, 0);
         movement = Vector3.ClampMagnitude(movement, 1);
         
