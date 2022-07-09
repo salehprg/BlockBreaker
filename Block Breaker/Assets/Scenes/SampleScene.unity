@@ -156,31 +156,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.25625095
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.407
+      value: 8.514048
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9810647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.19368066
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 22.335
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2d4014b78a5fb45a38f5247ed76183, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -401,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408308548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.008}
+  m_LocalPosition: {x: 0, y: 0, z: -1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1222,7 +1222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111177583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.992, y: 0.3, z: 7.71}
+  m_LocalPosition: {x: 14.992, y: 0.234, z: 7.71}
   m_LocalScale: {x: 0.35477, y: 0.35477, z: 0.35477}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1579,7 +1579,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9254b847340e99f4b80f6053e6c2db1a, type: 2}
+  - {fileID: 2100000, guid: 5e4f158dc5a16734c9a361316d077366, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
