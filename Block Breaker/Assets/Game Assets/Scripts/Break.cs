@@ -6,8 +6,6 @@ public class Break : MonoBehaviour
 {
     public float hp = 2.0f;
     public Color light;
-    public Color medium;
-    public Color hard;
     public Color veryhard;
     
     int currentHit = 0;
@@ -19,6 +17,12 @@ public class Break : MonoBehaviour
     {
         Color.RGBToHSV(light , out h_l , out s , out v);
         Color.RGBToHSV(veryhard , out h_h , out s, out v);
+
+        float h = map(hp , 0 , 5 , h_l , h_h);
+
+        Color temp = Color.HSVToRGB(h , s , v);
+
+        this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
     }
 
     // Update is called once per frame
