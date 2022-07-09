@@ -8,5 +8,6 @@ public class StartForce : MonoBehaviour
     {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         rigidbody.AddForce(startForce, ForceMode.Impulse);
+        
     }
 }

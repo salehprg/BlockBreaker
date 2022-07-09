@@ -5,12 +5,24 @@ using UnityEngine;
 public class Break : MonoBehaviour
 {
     public float hp = 2.0f;
+    public Color light;
+    public Color veryhard;
     
     int currentHit = 0;
+    float h_l = 0 ,  s = 0 , v = 0;
+    float h_h = 0;
 
+        
     void Start()
     {
-        
+        Color.RGBToHSV(light , out h_l , out s , out v);
+        Color.RGBToHSV(veryhard , out h_h , out s, out v);
+
+        float h = map(hp , 0 , 5 , h_l , h_h);
+
+        Color temp = Color.HSVToRGB(h , s , v);
+
+        this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
     }
 
     // Update is called once per frame
@@ -19,14 +31,26 @@ public class Break : MonoBehaviour
         
     }
 
+    float map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s-a1)*(b2-b1)/(a2-a1);
+    }
+
     private void OnCollisionEnter(Collision other) 
     {
         if(other.gameObject.tag == "ball")
         {
-            currentHit++;
+            hp--;
+            float h;
+
+            h = map(hp , 0 , 5 , h_l , h_h);
+
+            Color temp = Color.HSVToRGB(h , s , v);
+
+            this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
         }
 
-        if(currentHit >= hp)
+        if(hp <= 0)
         {
             Destroy(this.gameObject);
         }
