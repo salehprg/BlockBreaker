@@ -11,7 +11,7 @@ public class Break : MonoBehaviour
     int currentHit = 0;
     float h_l = 0 ,  s = 0 , v = 0;
     float h_h = 0;
-
+    public ParticleSystem exp;
         
     void Start()
     {
@@ -52,6 +52,7 @@ public class Break : MonoBehaviour
 
         if(hp <= 0)
         {
+            GameObject.Instantiate(exp,transform.position,new Quaternion());
             Destroy(this.gameObject);
         }
     }
