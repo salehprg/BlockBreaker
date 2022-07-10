@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Break : MonoBehaviour
 {
-    public float hp = 2.0f;
+    public int hp = 2;
+    public int minhp = 2;
+    public int maxhp = 6;
     public Color light;
     public Color veryhard;
     public ParticleSystem exp;
 
+    public Vector3 newPos;
 
     int currentHit = 0;
     float h_l = 0 ,  s = 0 , v = 0;
@@ -19,6 +22,10 @@ public class Break : MonoBehaviour
         
     void Start()
     {
+        hp = Random.Range(minhp , maxhp);
+
+        newPos = transform.localPosition;
+
         Color.RGBToHSV(light , out h_l , out s , out v);
         Color.RGBToHSV(veryhard , out h_h , out s, out v);
 
@@ -34,7 +41,7 @@ public class Break : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.localPosition = Vector3.Lerp(transform.localPosition , newPos , Time.deltaTime * 5);
     }
 
     float map(float s, float a1, float a2, float b1, float b2)
@@ -60,6 +67,7 @@ public class Break : MonoBehaviour
         {
             item?.DoItemTask();
             GameObject.Instantiate(exp,transform.position,new Quaternion());
+            
             Destroy(this.gameObject);
         }
     }
