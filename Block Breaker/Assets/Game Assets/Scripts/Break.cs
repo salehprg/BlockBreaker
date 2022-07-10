@@ -7,11 +7,15 @@ public class Break : MonoBehaviour
     public float hp = 2.0f;
     public Color light;
     public Color veryhard;
-    
+    public ParticleSystem exp;
+
+
     int currentHit = 0;
     float h_l = 0 ,  s = 0 , v = 0;
     float h_h = 0;
-    public ParticleSystem exp;
+    
+
+    public Item item;
         
     void Start()
     {
@@ -23,6 +27,8 @@ public class Break : MonoBehaviour
         Color temp = Color.HSVToRGB(h , s , v);
 
         this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
+
+        item =  GetComponentInChildren<Item>();
     }
 
     // Update is called once per frame
@@ -52,6 +58,7 @@ public class Break : MonoBehaviour
 
         if(hp <= 0)
         {
+            item?.DoItemTask();
             GameObject.Instantiate(exp,transform.position,new Quaternion());
             Destroy(this.gameObject);
         }
