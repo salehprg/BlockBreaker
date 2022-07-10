@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RandomGenerate : MonoBehaviour
@@ -18,7 +19,7 @@ public class RandomGenerate : MonoBehaviour
     void Start()
     {
         distance  = (max_x - min_x) / (column_count - 1);
-        current_breaks = GameObject.FindGameObjectsWithTag("break");
+        current_breaks = GameObject.FindGameObjectsWithTag("break").ToList();
     }
 
     // Update is called once per frame
