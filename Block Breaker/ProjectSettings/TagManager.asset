@@ -9,6 +9,7 @@ TagManager:
   - wall
   - bat
   - brick
+  - shield
   layers:
   - Default
   - TransparentFX
