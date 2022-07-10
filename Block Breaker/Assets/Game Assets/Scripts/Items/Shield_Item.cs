@@ -22,6 +22,7 @@ public class Shield_Item : Item
     {
         base.DoItemTask();
 
-        Debug.Log("Timer");
+        var shield = GameObject.FindGameObjectWithTag("shield");
+        shield.SetActive(true);
     }
 }

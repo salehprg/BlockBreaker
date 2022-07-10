@@ -22,6 +22,7 @@ public class Death_Item : Item
     {
         base.DoItemTask();
         
+        ball = GameObject.FindGameObjectWithTag("ball");
         Destroy(ball);
     }
 }

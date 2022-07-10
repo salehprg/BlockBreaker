@@ -24,6 +24,7 @@ public class Random_Item : Item
     {
         base.DoItemTask();
 
-        Debug.Log("Random");
+        int randItem = Random.Range(0 , items.Count);
+        items[randItem].DoItemTask();
     }
 }

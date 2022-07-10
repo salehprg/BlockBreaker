@@ -24,6 +24,11 @@ public class MoreBall_Item : Item
     {
         base.DoItemTask();
 
-        Debug.Log("MoreBall");
+        var ball = GameObject.FindGameObjectWithTag("ball");
+        for(int i = 0;i < BallAmount; i++)
+        {
+            GameObject.Instantiate(ball , ball.transform.position , new Quaternion());
+        }
+        
     }
 }

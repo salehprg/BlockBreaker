@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Heal_Item : Item
 {
-    public float healAmount = 2;
-
     public GameObject bat;
 
     
@@ -24,6 +22,7 @@ public class Heal_Item : Item
     {
         base.DoItemTask();
         
-        Debug.Log("Heal");
+        var ball = GameObject.FindGameObjectWithTag("ball");
+        GameObject.Instantiate(ball , ball.transform.position , new Quaternion());
     }
 }
