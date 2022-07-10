@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2449357122763412935}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01 (1)
-  m_TagString: Untagged
+  m_TagString: break
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,3 +115,4 @@ MonoBehaviour:
   light: {r: 0.13679248, g: 1, b: 0.25801742, a: 0}
   veryhard: {r: 1, g: 0, b: 0, a: 0}
   exp: {fileID: 19811046, guid: e6ea0c2b13012484ba2f5dc1054e6d75, type: 3}
+  item: {fileID: 0}

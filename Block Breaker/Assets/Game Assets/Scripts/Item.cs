@@ -15,7 +15,8 @@ public class Item : MonoBehaviour
     }
 
     public virtual void DoItemTask(){
-        GameObject.Instantiate(equip_effect , transform.position , new Quaternion());
+        if(equip_effect != null)
+            GameObject.Instantiate(equip_effect , transform.position , new Quaternion());
     }
 
 
