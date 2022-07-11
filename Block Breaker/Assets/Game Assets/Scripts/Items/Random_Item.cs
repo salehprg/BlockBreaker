@@ -7,7 +7,7 @@ public class Random_Item : Item
     public List<Item> items;
 
 
-    public override void DoItemTask()
+    public override void DoItemTask(object arg)
     {
         base.DoItemTask();
 

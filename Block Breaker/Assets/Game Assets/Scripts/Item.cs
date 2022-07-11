@@ -26,9 +26,9 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "ball" || other.gameObject.tag == "bat" ){
-            DoItemTask();
+        if (other.gameObject.tag == "ball" || other.gameObject.tag == "bat" )
+        {
+            DoItemTask(other.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -36,7 +36,7 @@ public class Item : MonoBehaviour
     public virtual void _Start(){}
     public virtual void _Update(){}
 
-    public virtual void DoItemTask()
+    public virtual void DoItemTask(object arg = null)
     {
         if(equip_effect != null)
             GameObject.Instantiate(equip_effect , transform.position , new Quaternion());

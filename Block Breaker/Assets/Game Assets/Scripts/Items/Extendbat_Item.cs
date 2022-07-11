@@ -15,7 +15,7 @@ public class Extendbat_Item : Item
 
     // Update is called once per frame
 
-    public override void DoItemTask()
+    public override void DoItemTask(object arg)
     {
         base.DoItemTask();
         

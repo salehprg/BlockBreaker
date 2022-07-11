@@ -17,7 +17,8 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time>time && Ball != null)
+        Ball = GameObject.FindGameObjectWithTag("ball");
+        if (Time.time > time && Ball != null)
         {
             gameObject.transform.Rotate(0,speed*Time.deltaTime,0);
         }

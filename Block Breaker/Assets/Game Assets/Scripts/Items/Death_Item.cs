@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Death_Item : Item
 {
-    public GameObject ball;
 
-
-    public override void DoItemTask()
+    public override void DoItemTask(object arg)
     {
         base.DoItemTask();
         
-        ball = GameObject.FindGameObjectWithTag("ball");
-        Destroy(ball);
+        var ball = (GameObject)arg;
+        if(ball.tag == "ball")
+            Destroy(ball);
     }
 }

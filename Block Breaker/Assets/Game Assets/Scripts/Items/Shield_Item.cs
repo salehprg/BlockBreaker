@@ -8,7 +8,7 @@ public class Shield_Item : Item
 
 
 
-    public override void DoItemTask()
+    public override void DoItemTask(object arg)
     {
         base.DoItemTask();
 

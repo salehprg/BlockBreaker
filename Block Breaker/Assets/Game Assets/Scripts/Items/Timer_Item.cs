@@ -14,10 +14,9 @@ public class Timer_Item : Item
         bat = GameObject.FindGameObjectWithTag("bat");
     }
 
-    public override void DoItemTask()
+    public override void DoItemTask(object arg)
     {
         base.DoItemTask();
-        
-        Debug.Log("Timer");
+
     }
 }

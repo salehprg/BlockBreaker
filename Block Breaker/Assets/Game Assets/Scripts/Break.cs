@@ -30,7 +30,7 @@ public class Break : MonoBehaviour
         Color.RGBToHSV(light , out h_l , out s , out v);
         Color.RGBToHSV(veryhard , out h_h , out s, out v);
 
-        float h = map(hp , 0 , 5 , h_l , h_h);
+        float h = map(hp , minhp , maxhp , h_l , h_h);
 
         Color temp = Color.HSVToRGB(h , s , v);
 
@@ -47,6 +47,8 @@ public class Break : MonoBehaviour
 
     public void Damage(int amount)
     {
+        hp -= amount;
+
         float h;
 
         h = map(hp , 0 , 5 , h_l , h_h);
@@ -71,6 +73,7 @@ public class Break : MonoBehaviour
 
     private void OnDestroy() 
     {
+        Debug.Log("dest");
         int index = Random.Range(0,powerups.Count);
         var temp = GameObject.Instantiate(powerups[index]);
         temp.transform.SetParent(transform.parent);

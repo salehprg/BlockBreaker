@@ -118,4 +118,7 @@ MonoBehaviour:
   veryhard: {r: 1, g: 0, b: 0, a: 0}
   exp: {fileID: 19811046, guid: e6ea0c2b13012484ba2f5dc1054e6d75, type: 3}
   newPos: {x: 0, y: 0, z: 0}
+  powerups:
+  - {fileID: 7453755761277648630, guid: 730142523ae33484f90edefc4c5106cc, type: 3}
+  - {fileID: 5184147133111966510, guid: 4e833eda9676cd74e8d9fa924da68968, type: 3}
   item: {fileID: 0}
