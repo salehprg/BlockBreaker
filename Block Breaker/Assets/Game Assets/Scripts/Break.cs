@@ -49,26 +49,4 @@ public class Break : MonoBehaviour
         return b1 + (s-a1)*(b2-b1)/(a2-a1);
     }
 
-    private void OnCollisionEnter(Collision other) 
-    {
-        if(other.gameObject.tag == "ball")
-        {
-            hp--;
-            float h;
-
-            h = map(hp , 0 , 5 , h_l , h_h);
-
-            Color temp = Color.HSVToRGB(h , s , v);
-
-            this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
-        }
-
-        if(hp <= 0)
-        {
-            item?.DoItemTask();
-            GameObject.Instantiate(exp,transform.position,new Quaternion());
-            
-            Destroy(this.gameObject);
-        }
-    }
 }

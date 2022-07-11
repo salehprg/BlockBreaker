@@ -19,7 +19,6 @@ public class DeadCheck : MonoBehaviour
 
     private void OnDestroy() {
         GameObject.Instantiate(deadParticle , transform.position , new Quaternion());
-        Debug.Log(deadParticle.main.duration);
     }
 
     private void OnCollisionEnter(Collision other) {

@@ -8,7 +8,13 @@ public class Item : MonoBehaviour
     public ParticleSystem movement_effect;
     public string Ball_tag;
 
-    
+    private void OnTriggerEnter(Collider other) {
+        Debug.DrawLine(transform.position, transform.position+new Vector3(5,0,0));
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag == "ball"){
+            DoItemTask();
+        }
+    }
     void Update()
     {
         
