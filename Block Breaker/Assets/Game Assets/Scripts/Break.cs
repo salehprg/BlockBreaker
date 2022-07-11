@@ -54,6 +54,14 @@ public class Break : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "ball"){
             hp--;
+            float h;
+
+            h = map(hp , 0 , 5 , h_l , h_h);
+
+            Color temp = Color.HSVToRGB(h , s , v);
+
+            this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
+            
         }
         if (hp<=0){
             GameObject.Instantiate(exp,transform.position,new Quaternion());
