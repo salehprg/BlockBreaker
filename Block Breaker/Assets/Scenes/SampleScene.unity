@@ -2914,6 +2914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heal
       objectReference: {fileID: 0}
+    - target: {fileID: 7478922462510028131, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
+      propertyPath: m_TagString
+      value: powers
+      objectReference: {fileID: 0}
     - target: {fileID: 7483998078001410561, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
       propertyPath: m_RootOrder
       value: 17

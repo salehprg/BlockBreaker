@@ -10,6 +10,7 @@ TagManager:
   - bat
   - brick
   - shield
+  - powers
   layers:
   - Default
   - TransparentFX
