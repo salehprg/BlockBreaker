@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9152195168154428168}
   m_Layer: 0
   m_Name: Heal
-  m_TagString: Untagged
+  m_TagString: powers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,5 +99,4 @@ MonoBehaviour:
   equip_effect: {fileID: 0}
   movement_effect: {fileID: 0}
   Ball_tag: 
-  healAmount: 2
   bat: {fileID: 0}

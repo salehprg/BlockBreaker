@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Break : MonoBehaviour
@@ -17,11 +18,12 @@ public class Break : MonoBehaviour
     float h_l = 0 ,  s = 0 , v = 0;
     float h_h = 0;
     
-
+    List<GameObject> powerups;
     public Item item;
         
     void Start()
     {
+        powerups = GameObject.FindGameObjectsWithTag("powers").ToList();
         hp = Random.Range(minhp , maxhp);
 
         newPos = transform.localPosition;
@@ -49,4 +51,15 @@ public class Break : MonoBehaviour
         return b1 + (s-a1)*(b2-b1)/(a2-a1);
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "ball"){
+            hp--;
+        }
+        
+    }
+    private void OnDestroy() {
+        int index = Random.Range(0,powerups.Count);
+        var temp = GameObject.Instantiate(powerups[index]);
+        temp.transform.SetParent(transform.parent);
+    }
 }
