@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        
+        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "ball" || other.gameObject.tag == "bat" ){
             DoItemTask();
             Destroy(this.gameObject);

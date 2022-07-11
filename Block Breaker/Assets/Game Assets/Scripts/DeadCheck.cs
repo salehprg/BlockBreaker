@@ -21,7 +21,13 @@ public class DeadCheck : MonoBehaviour
         GameObject.Instantiate(deadParticle , transform.position , new Quaternion());
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.tag == "brick")
+        {
+           other.gameObject.GetComponent<Break>().Damage(1);
+        }
+
         if(other.gameObject.tag == "endwall")
         {
             Destroy(this.gameObject);

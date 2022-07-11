@@ -45,30 +45,32 @@ public class Break : MonoBehaviour
         transform.localPosition = Vector3.Lerp(transform.localPosition , newPos , Time.deltaTime * 5);
     }
 
+    public void Damage(int amount)
+    {
+        float h;
+
+        h = map(hp , 0 , 5 , h_l , h_h);
+        map(hp , 0 , 5 , h_l , h_h);
+
+        Color temp = Color.HSVToRGB(h , s , v);
+
+        this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
+
+        if (hp <= 0)
+        {
+            GameObject.Instantiate(exp,transform.position,new Quaternion());
+            Destroy(gameObject);
+        }
+    }
+
+
     float map(float s, float a1, float a2, float b1, float b2)
     {
         return b1 + (s-a1)*(b2-b1)/(a2-a1);
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "ball"){
-            hp--;
-            float h;
-
-            h = map(hp , 0 , 5 , h_l , h_h);
-
-            Color temp = Color.HSVToRGB(h , s , v);
-
-            this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
-            
-        }
-        if (hp<=0){
-            GameObject.Instantiate(exp,transform.position,new Quaternion());
-            Destroy(gameObject);
-        }
-        
-    }
-    private void OnDestroy() {
+    private void OnDestroy() 
+    {
         int index = Random.Range(0,powerups.Count);
         var temp = GameObject.Instantiate(powerups[index]);
         temp.transform.SetParent(transform.parent);
