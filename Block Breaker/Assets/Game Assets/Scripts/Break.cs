@@ -73,9 +73,16 @@ public class Break : MonoBehaviour
 
     private void OnDestroy() 
     {
-        Debug.Log("dest");
-        int index = Random.Range(0,powerups.Count);
-        var temp = GameObject.Instantiate(powerups[index]);
-        temp.transform.SetParent(transform.parent);
+        if(Random.Range(0,100) % 25 == 0)
+        {
+
+            int index = Random.Range(0,powerups.Count);
+            var temp = GameObject.Instantiate(powerups[index],transform.position , new Quaternion());
+            
+            temp.transform.SetParent(transform.parent);
+
+            temp.transform.localPosition = transform.localPosition;
+            temp.transform.localRotation = powerups[index].transform.localRotation;
+        }
     }
 }
