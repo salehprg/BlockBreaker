@@ -55,6 +55,10 @@ public class Break : MonoBehaviour
         if (other.gameObject.tag == "ball"){
             hp--;
         }
+        if (hp<=0){
+            GameObject.Instantiate(exp,transform.position,new Quaternion());
+            Destroy(gameObject);
+        }
         
     }
     private void OnDestroy() {
