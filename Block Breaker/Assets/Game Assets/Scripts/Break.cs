@@ -18,12 +18,11 @@ public class Break : MonoBehaviour
     float h_l = 0 ,  s = 0 , v = 0;
     float h_h = 0;
     
-    List<GameObject> powerups;
+    public List<GameObject> powerups;
     public Item item;
         
     void Start()
     {
-        powerups = GameObject.FindGameObjectsWithTag("powers").ToList();
         hp = Random.Range(minhp , maxhp);
 
         newPos = transform.localPosition;
