@@ -6,12 +6,17 @@ public class MoreBall_Item : Item
 {
     public float BallAmount = 2;
 
+    GameObject ball;
+    public override void _Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("ball");
+    }
 
     public override void DoItemTask()
     {
         base.DoItemTask();
 
-        var ball = GameObject.FindGameObjectWithTag("ball");
+        
         for(int i = 0;i < BallAmount; i++)
         {
             GameObject.Instantiate(ball , ball.transform.position , new Quaternion());
