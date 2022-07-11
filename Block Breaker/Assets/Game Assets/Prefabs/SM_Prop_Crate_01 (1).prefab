@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   minhp: 1
-  maxhp: 2
+  maxhp: 3
   light: {r: 0.13679248, g: 1, b: 0.25801742, a: 0}
   veryhard: {r: 1, g: 0, b: 0, a: 0}
   exp: {fileID: 19811046, guid: e6ea0c2b13012484ba2f5dc1054e6d75, type: 3}
