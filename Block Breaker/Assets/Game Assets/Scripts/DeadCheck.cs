@@ -26,5 +26,9 @@ public class DeadCheck : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(other.gameObject.tag == "shield")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

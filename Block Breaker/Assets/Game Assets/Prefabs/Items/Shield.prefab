@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 669394361651309721}
   - component: {fileID: 679488454029285447}
   - component: {fileID: 810725167122034347}
+  - component: {fileID: 5606962720424311521}
+  - component: {fileID: -5403572721534942034}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -96,7 +98,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d944c7a4e7358d8428fd3cdfbb26b27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equip_effect: {fileID: 0}
+  equip_effect: {fileID: 115466, guid: 1342eed2661c76f43af6fbb613df9de1, type: 3}
   movement_effect: {fileID: 0}
   Ball_tag: 
-  bat: {fileID: 0}
+  speed: 2
+  shield: {fileID: 1955882337011766450, guid: ddb63460669bb2244af782320940b00e, type: 3}
+--- !u!95 &5606962720424311521
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665390295874774111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c17e6d35d8b14b448ad10e9956cc0d6f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &-5403572721534942034
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665390295874774111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e50957f3a4a037e4d9a7fdad9b88ab23, type: 3}

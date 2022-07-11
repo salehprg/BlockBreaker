@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Shield_Item : Item
 {
-    public GameObject bat;
+    public GameObject shield;
 
     
     void Start()
     {
-        bat = GameObject.FindGameObjectWithTag("bat");
+        
     }
 
     // Update is called once per frame
@@ -22,7 +22,11 @@ public class Shield_Item : Item
     {
         base.DoItemTask();
 
-        var shield = GameObject.FindGameObjectWithTag("shield");
-        shield.SetActive(true);
+        var bat = GameObject.FindGameObjectWithTag("bat");
+        var temp = GameObject.Instantiate(shield , bat.transform.position , new Quaternion());
+        temp.transform.SetParent(bat.transform.parent);
+
+        temp.transform.localPosition = new Vector3(0,0,4.9f);
+        temp.transform.localEulerAngles = new Vector3(-90,0,0);
     }
 }

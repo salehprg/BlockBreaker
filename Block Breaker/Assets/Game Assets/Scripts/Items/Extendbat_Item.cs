@@ -23,7 +23,7 @@ public class Extendbat_Item : Item
     {
         base.DoItemTask();
         
-        bat.transform.localScale = new Vector3(bat.transform.localScale.x + 0.1f , bat.transform.localScale.y,
+        bat.transform.localScale = new Vector3(bat.transform.localScale.x + 0.15f , bat.transform.localScale.y,
                                                 bat.transform.localScale.z);
     }
 }
