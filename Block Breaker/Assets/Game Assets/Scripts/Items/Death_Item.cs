@@ -6,17 +6,6 @@ public class Death_Item : Item
 {
     public GameObject ball;
 
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void DoItemTask()
     {

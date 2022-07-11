@@ -20,7 +20,7 @@ public class RandomGenerate : MonoBehaviour
     void Start()
     {
         distance  = (max_x - min_x) / (column_count - 1);
-        current_bricks = GameObject.FindGameObjectsWithTag("brick").ToList();
+        //current_bricks = GameObject.FindGameObjectsWithTag("brick").ToList();
     }
 
     // Update is called once per frame
@@ -32,18 +32,18 @@ public class RandomGenerate : MonoBehaviour
 
             int randomColumn = Random.Range(0 , column_count);
             int randomObject = Random.Range(0 , objects.Count);
-            int randomObjectRow = Random.Range(0 , obj_per_row);
+            int randomObjectRow = Random.Range(0 , obj_per_row+1);
             
             List<float> spawned_x = new List<float>();
 
             for(int i = 0; i < randomObjectRow; i++)
             {
-                while(spawned_x.Exists(x => x == randomColumn))
-                {
-                    randomColumn = Random.Range(0 , column_count);
-                }
+                // while(spawned_x.Exists(x => x == randomColumn))
+                // {
+                //     randomColumn = Random.Range(0 , column_count);
+                // }
 
-                spawned_x.Add(randomColumn);
+                // spawned_x.Add(randomColumn);
 
                 float newX = distance * randomColumn;
 
@@ -54,18 +54,18 @@ public class RandomGenerate : MonoBehaviour
                 temp.transform.localPosition = new Vector3(newX + min_x , transform.localPosition.y , transform.localPosition.z);
                 temp.transform.localRotation = new Quaternion();
 
-                current_bricks.Add(temp);
-                current_bricks.RemoveAll(x => x == null);
+                //current_bricks.Add(temp);
+                //current_bricks.RemoveAll(x => x == null);
             }
 
-            foreach(var brick in current_bricks)
-            {
-                Break temp = brick.GetComponent<Break>();
-                temp.newPos = new Vector3(brick.transform.localPosition.x, 
-                                                            brick.transform.localPosition.y,
-                                                            brick.transform.localPosition.z + 0.68f);
+            // foreach(var brick in current_bricks)
+            // {
+            //     Break temp = brick.GetComponent<Break>();
+            //     temp.newPos = new Vector3(brick.transform.localPosition.x, 
+            //                                                 brick.transform.localPosition.y,
+            //                                                 brick.transform.localPosition.z + 0.68f);
 
-            }
+            // }
 
             lastTime = Time.time;
         }

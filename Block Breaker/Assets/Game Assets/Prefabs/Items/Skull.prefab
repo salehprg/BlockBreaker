@@ -100,8 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equip_effect: {fileID: 134990, guid: ec7286429da0ad74dbfaf9940406e5e1, type: 3}
   movement_effect: {fileID: 0}
-  Ball_tag: 
-  speed: 2
+  speed: 0.1
   ball: {fileID: 0}
 --- !u!95 &3552371737079964335
 Animator:

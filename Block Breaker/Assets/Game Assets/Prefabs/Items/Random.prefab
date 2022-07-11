@@ -100,15 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equip_effect: {fileID: 115466, guid: 1342eed2661c76f43af6fbb613df9de1, type: 3}
   movement_effect: {fileID: 0}
-  Ball_tag: 
-  speed: 2
+  speed: 0.1
   items:
   - {fileID: 8889778642147337078, guid: 730142523ae33484f90edefc4c5106cc, type: 3}
   - {fileID: 9152195168154428168, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
   - {fileID: 650765425526932393, guid: 4e833eda9676cd74e8d9fa924da68968, type: 3}
   - {fileID: 810725167122034347, guid: 87b27418392d0c14a9c016de398bbf08, type: 3}
   - {fileID: 2220916558608579312, guid: 71693926035a43a4a8a7978792b9e6cd, type: 3}
-  bat: {fileID: 0}
 --- !u!95 &4251529938259860801
 Animator:
   serializedVersion: 4

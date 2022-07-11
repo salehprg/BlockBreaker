@@ -6,17 +6,7 @@ public class Shield_Item : Item
 {
     public GameObject shield;
 
-    
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void DoItemTask()
     {

@@ -6,28 +6,35 @@ public class Item : MonoBehaviour
 {
     public GameObject equip_effect;
     public GameObject movement_effect;
-    public string Ball_tag;
     public float speed;
 
-    GameObject bat;
-    private void OnTriggerEnter(Collider other) 
-    {
-        if (other.gameObject.tag == "ball"){
-            DoItemTask();
-            Destroy(this.gameObject);
-        }
-    }
+    Vector3 endPos;
+
     private void Start() 
     {
-        bat = GameObject.FindGameObjectWithTag("bat");
+        endPos = new Vector3(transform.localPosition.x , transform.localPosition.y , 6);
+
+        _Start();
     }
 
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.localPosition.x , transform.localPosition.y , 6);
+        transform.localPosition = Vector3.Lerp(transform.localPosition , endPos , Time.deltaTime * speed);
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition , newPos , Time.deltaTime * speed);
+        _Update();
     }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        
+        if (other.gameObject.tag == "ball" || other.gameObject.tag == "bat" ){
+            DoItemTask();
+            Destroy(this.gameObject);
+        }
+    }
+
+    public virtual void _Start(){}
+    public virtual void _Update(){}
 
     public virtual void DoItemTask()
     {
