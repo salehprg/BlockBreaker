@@ -8,6 +8,7 @@ public class Break : MonoBehaviour
     public int hp = 2;
     public int minhp = 2;
     public int maxhp = 6;
+    public float chance_drop;
     public Color light;
     public Color veryhard;
     public ParticleSystem exp;
@@ -73,7 +74,9 @@ public class Break : MonoBehaviour
 
     private void OnDestroy() 
     {
-        if(Random.Range(0,100) % 25 == 0)
+        int itemrnd = Random.Range(0,100);
+
+        if(itemrnd < chance_drop * 100)
         {
 
             int index = Random.Range(0,powerups.Count);

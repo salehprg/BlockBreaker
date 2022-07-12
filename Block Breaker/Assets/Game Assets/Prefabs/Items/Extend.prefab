@@ -102,6 +102,7 @@ MonoBehaviour:
   movement_effect: {fileID: 0}
   speed: 0.1
   bat: {fileID: 0}
+  maxExtend: 0.65
 --- !u!95 &6078422269410481844
 Animator:
   serializedVersion: 4

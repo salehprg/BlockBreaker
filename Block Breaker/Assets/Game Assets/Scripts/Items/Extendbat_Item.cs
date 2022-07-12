@@ -6,7 +6,7 @@ public class Extendbat_Item : Item
 {
 
     public GameObject bat;
-
+    public float maxExtend;
     
     public override void _Start()
     {
@@ -19,7 +19,10 @@ public class Extendbat_Item : Item
     {
         base.DoItemTask();
         
-        bat.transform.localScale = new Vector3(bat.transform.localScale.x + 0.15f , bat.transform.localScale.y,
-                                                bat.transform.localScale.z);
+        if(bat.transform.localScale.x + 0.15f <= maxExtend)
+        {
+            bat.transform.localScale = new Vector3(bat.transform.localScale.x + 0.15f , bat.transform.localScale.y,
+                                                    bat.transform.localScale.z);
+        }
     }
 }

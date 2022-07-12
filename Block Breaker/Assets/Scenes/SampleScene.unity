@@ -3592,6 +3592,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 4331851027985091450, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
+      propertyPath: startForce.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331851027985091450, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
+      propertyPath: startForce.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091452, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: m_RootOrder
       value: 14

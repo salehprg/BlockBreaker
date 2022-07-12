@@ -31,6 +31,11 @@ public class Item : MonoBehaviour
             DoItemTask(other.gameObject);
             Destroy(this.gameObject);
         }
+
+        if (other.gameObject.tag == "endwall")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public virtual void _Start(){}
@@ -39,7 +44,10 @@ public class Item : MonoBehaviour
     public virtual void DoItemTask(object arg = null)
     {
         if(equip_effect != null)
-            GameObject.Instantiate(equip_effect , transform.position , new Quaternion());
+        {
+            var temp = GameObject.Instantiate(equip_effect , transform.position , new Quaternion());
+            Destroy(temp , 5);
+        }
     }
 
 
