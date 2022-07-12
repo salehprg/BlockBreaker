@@ -11,6 +11,8 @@ TagManager:
   - brick
   - shield
   - powers
+  - Rightwall
+  - Leftwall
   layers:
   - Default
   - TransparentFX
