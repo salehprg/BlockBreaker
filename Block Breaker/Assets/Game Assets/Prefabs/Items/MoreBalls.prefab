@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2429653391120427736}
   - component: {fileID: 2429653391120427737}
   - component: {fileID: 2429653391120427738}
-  - component: {fileID: 6782205906798735783}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6782205906798735783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2429653391120427716}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c518e0fec7412624398f273871196287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  wallTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  batTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  deadParticle: {fileID: 153568, guid: cca79b260878071418290367024a6716, type: 3}
 --- !u!1 &3435886784432934435
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +233,6 @@ GameObject:
   - component: {fileID: 7051521144082944070}
   - component: {fileID: 7051521144082944071}
   - component: {fileID: 7051521144082944068}
-  - component: {fileID: 2194635838858283833}
   m_Layer: 0
   m_Name: Ball (1)
   m_TagString: Untagged
@@ -329,28 +305,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2194635838858283833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051521144082944090}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c518e0fec7412624398f273871196287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  wallTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  batTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  deadParticle: {fileID: 153568, guid: cca79b260878071418290367024a6716, type: 3}
 --- !u!1 &9149345006241342277
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +316,6 @@ GameObject:
   - component: {fileID: 9149345006241342297}
   - component: {fileID: 9149345006241342296}
   - component: {fileID: 9149345006241342299}
-  - component: {fileID: 95103884255000614}
   m_Layer: 0
   m_Name: Ball (2)
   m_TagString: Untagged
@@ -435,25 +388,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &95103884255000614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9149345006241342277}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c518e0fec7412624398f273871196287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  wallTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  batTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  deadParticle: {fileID: 153568, guid: cca79b260878071418290367024a6716, type: 3}

@@ -91,9 +91,8 @@ public class Break : MonoBehaviour
     {
         if(hasItem)
         {
-
             int index = Random.Range(0,powerups.Count);
-            var temp = GameObject.Instantiate(powerups[index],transform.position , new Quaternion());
+            var temp = GameObject.Instantiate(powerups[index],transform.position , new Quaternion() , transform.parent);
             temp.transform.localPosition = transform.localPosition;
             temp.transform.localRotation = powerups[index].transform.localRotation;
         }
