@@ -1462,7 +1462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03999996
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3306,7 +3306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.635
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3679,14 +3679,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.81543255, y: 0.12922046, z: 0.039401237, w: 0.56286716}
+  m_LocalRotation: {x: 0.757777, y: 0.082693905, z: -0.008863242, w: 0.64719176}
   m_LocalPosition: {x: 14.72, y: 4.97, z: 3.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 114.8, y: -30, z: -37.457}
+  m_LocalEulerAnglesHint: {x: 100.79, y: -30, z: -37.457}
 --- !u!4 &716073104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4789724816070758, guid: 49b9066be53e5314798b57987364d700, type: 3}
@@ -4479,7 +4479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 3740714997587707045, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6186,7 +6186,7 @@ MonoBehaviour:
   max_x: 4.4
   column_count: 11
   obj_per_row: 1
-  generate_delay: 15
+  generate_delay: 1
   objects:
   - {fileID: 3320045177433857757, guid: 730142523ae33484f90edefc4c5106cc, type: 3}
   - {fileID: 6029599813629050837, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
