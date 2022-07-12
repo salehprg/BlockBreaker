@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
 
     private void Start() 
     {
-        endPos = new Vector3(transform.localPosition.x , transform.localPosition.y , 6);
+        endPos = new Vector3(transform.localPosition.x , transform.localPosition.y , 10);
 
         _Start();
     }
