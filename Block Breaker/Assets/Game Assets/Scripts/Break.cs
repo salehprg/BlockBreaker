@@ -24,14 +24,14 @@ public class Break : MonoBehaviour
         
     void Start()
     {
-        hp = Random.Range(minhp , maxhp);
+        hp = Random.Range(minhp , maxhp + 1);
 
         newPos = transform.localPosition;
 
         Color.RGBToHSV(light , out h_l , out s , out v);
         Color.RGBToHSV(veryhard , out h_h , out s, out v);
 
-        float h = map(hp , minhp , maxhp , h_l , h_h);
+        float h = map(hp , 1 , 5 , h_l , h_h);
 
         Color temp = Color.HSVToRGB(h , s , v);
 
@@ -52,8 +52,7 @@ public class Break : MonoBehaviour
 
         float h;
 
-        h = map(hp , 0 , 5 , h_l , h_h);
-        map(hp , 0 , 5 , h_l , h_h);
+        h = map(hp , 1 , 5 , h_l , h_h);
 
         Color temp = Color.HSVToRGB(h , s , v);
 

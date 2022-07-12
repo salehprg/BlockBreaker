@@ -22,7 +22,6 @@ public class Timer_Item : Item
         Time.timeScale = 0.5f;
 
         movement.disableTimer = Time.time + slowmotion_time;
-        movement.normal_speed_x = movement.speed_x;
         movement.speed_x *= 1 / Time.timeScale;
 
     }
