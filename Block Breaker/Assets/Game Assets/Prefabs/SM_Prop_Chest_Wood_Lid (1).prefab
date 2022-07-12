@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3740714997588072581
+--- !u!1 &7410586447426649120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3740714997587707045}
-  - component: {fileID: 3740714997584839813}
-  - component: {fileID: 3740714997585806917}
-  - component: {fileID: 3740714997202789206}
-  - component: {fileID: 2449357122763412935}
+  - component: {fileID: 1713783840084115872}
+  - component: {fileID: 5260448100442073553}
+  - component: {fileID: 8145616178391731329}
+  - component: {fileID: 762388374636009549}
   m_Layer: 0
-  m_Name: SM_Prop_Crate_01 (1)
-  m_TagString: brick
+  m_Name: SM_Prop_Chest_Wood_Lid (1)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3740714997587707045
+--- !u!4 &1713783840084115872
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740714997588072581}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 0.26, z: 1.26}
-  m_LocalScale: {x: 0.72079957, y: 0.39777327, z: 0.35036626}
+  m_GameObject: {fileID: 7410586447426649120}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: -0.5}
+  m_LocalScale: {x: 1.3873482, y: 2.513995, z: 2.0665517}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3740714997584839813
+--- !u!33 &5260448100442073553
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740714997588072581}
-  m_Mesh: {fileID: 4300000, guid: 7648119b4055248489399d8172e1ccbc, type: 3}
---- !u!23 &3740714997585806917
+  m_GameObject: {fileID: 7410586447426649120}
+  m_Mesh: {fileID: 4300002, guid: 9ffb334c672fd3e44aad2a8cf409323e, type: 3}
+--- !u!23 &8145616178391731329
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740714997588072581}
+  m_GameObject: {fileID: 7410586447426649120}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,43 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3740714997202789206
+--- !u!64 &762388374636009549
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740714997588072581}
+  m_GameObject: {fileID: 7410586447426649120}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7648119b4055248489399d8172e1ccbc, type: 3}
---- !u!114 &2449357122763412935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740714997588072581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49baf82214482ca4981af10a5fe9bb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 2
-  minhp: 2
-  maxhp: 4
-  chance_drop: 0.2
-  light: {r: 0.13679248, g: 1, b: 0.25801742, a: 0}
-  veryhard: {r: 1, g: 0, b: 0, a: 0}
-  exp: {fileID: 19811046, guid: e6ea0c2b13012484ba2f5dc1054e6d75, type: 3}
-  newPos: {x: 0, y: 0, z: 0}
-  powerups:
-  - {fileID: 3320045177433857757, guid: 730142523ae33484f90edefc4c5106cc, type: 3}
-  - {fileID: 6029599813629050837, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
-  - {fileID: 698342335165349735, guid: 87b27418392d0c14a9c016de398bbf08, type: 3}
-  - {fileID: 2221546185187079852, guid: 71693926035a43a4a8a7978792b9e6cd, type: 3}
-  chestBox: {fileID: 7410586447426649120, guid: 636711e7543803a4eb491e991a095392, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 9ffb334c672fd3e44aad2a8cf409323e, type: 3}

@@ -12,18 +12,35 @@ public class Break : MonoBehaviour
     public Color light;
     public Color veryhard;
     public ParticleSystem exp;
-
     public Vector3 newPos;
+    public List<GameObject> powerups;
+    public GameObject chestBox;
+
+
 
     int currentHit = 0;
     float h_l = 0 ,  s = 0 , v = 0;
     float h_h = 0;
     
-    public List<GameObject> powerups;
-    public Item item;
+    
+
+    bool hasItem = false;
+
         
     void Start()
     {
+        int itemrnd = Random.Range(0,100);
+
+        if(itemrnd < chance_drop * 100)
+        {
+            hasItem = true;
+            var temp_chest = GameObject.Instantiate(chestBox , transform.position, new Quaternion() , this.transform);
+            temp_chest.transform.localPosition = new Vector3(temp_chest.transform.localPosition.x,
+                                                                temp_chest.transform.localPosition.y + 0.2f,
+                                                                temp_chest.transform.localPosition.z - 0.5f);
+        }
+
+
         hp = Random.Range(minhp , maxhp + 1);
 
         newPos = transform.localPosition;
@@ -36,9 +53,8 @@ public class Break : MonoBehaviour
         Color temp = Color.HSVToRGB(h , s , v);
 
         this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
-
-        item =  GetComponentInChildren<Item>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -73,9 +89,7 @@ public class Break : MonoBehaviour
 
     private void OnDestroy() 
     {
-        int itemrnd = Random.Range(0,100);
-
-        if(itemrnd < chance_drop * 100)
+        if(hasItem)
         {
 
             int index = Random.Range(0,powerups.Count);

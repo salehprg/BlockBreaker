@@ -51,7 +51,7 @@ public class RandomGenerate : MonoBehaviour
 
                 temp.transform.SetParent(transform.parent);
 
-                temp.transform.localPosition = new Vector3(newX + min_x , transform.localPosition.y , transform.localPosition.z);
+                temp.transform.localPosition = new Vector3(newX + min_x , transform.localPosition.y + 0.2f , transform.localPosition.z);
                 temp.transform.localRotation = objects[randomObject].transform.localRotation;
 
                 //current_bricks.Add(temp);
