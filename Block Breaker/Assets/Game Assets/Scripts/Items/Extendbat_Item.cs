@@ -10,7 +10,7 @@ public class Extendbat_Item : Item
     
     public override void _Start()
     {
-        bat = GameObject.FindGameObjectWithTag("bat");
+        
     }
 
     // Update is called once per frame
@@ -18,6 +18,8 @@ public class Extendbat_Item : Item
     public override void DoItemTask(object arg)
     {
         base.DoItemTask();
+        
+        bat = GameObject.FindGameObjectWithTag("bat");
         
         if(bat.transform.localScale.x + 0.15f <= maxExtend)
         {
