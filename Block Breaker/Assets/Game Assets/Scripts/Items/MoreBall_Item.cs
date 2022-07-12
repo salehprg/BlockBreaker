@@ -14,7 +14,11 @@ public class MoreBall_Item : Item
         
         for(int i = 0;i < BallAmount; i++)
         {
-            GameObject.Instantiate(ball , ball.transform.position , new Quaternion());
+           var temp = GameObject.Instantiate(ball , ball.transform.position , new Quaternion());
+           temp.transform.SetParent(transform.parent);
+           temp.transform.localPosition = new Vector3(Random.Range(temp.transform.localPosition.x - 0.5f , temp.transform.localPosition.x + 0.5f)
+                                                        , temp.transform.localPosition.y
+                                                        , temp.transform.localPosition.z);
         }
         
     }
