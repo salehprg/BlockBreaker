@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     public UnityEvent wallTouchEvent;
     public UnityEvent batTouchEvent;
     public GameObject deadParticle;
-
+    public int BrickCollisionCount=0;
     void Start()
     {
         
@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.tag == "brick")
         {
+            BrickCollisionCount++;
             brickTouchEvent?.Invoke();
             other.gameObject.GetComponent<Break>().Damage(1);
         }
