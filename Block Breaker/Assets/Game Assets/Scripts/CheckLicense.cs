@@ -23,6 +23,8 @@ public class CheckLicense : MonoBehaviour
 
         license = RSA.Encrypt(license);
 
+        print(license);
+        
         licenseModel.referralCode = license;
         licenseModel.guid = "1234";
         licenseModel.securityStamp = "test";
