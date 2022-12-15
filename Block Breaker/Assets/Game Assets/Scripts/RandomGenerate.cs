@@ -38,13 +38,6 @@ public class RandomGenerate : MonoBehaviour
 
             for(int i = 0; i < randomObjectRow; i++)
             {
-                // while(spawned_x.Exists(x => x == randomColumn))
-                // {
-                //     randomColumn = Random.Range(0 , column_count);
-                // }
-
-                // spawned_x.Add(randomColumn);
-
                 float newX = distance * randomColumn;
 
                 var temp = GameObject.Instantiate(objects[randomObject]);
@@ -54,18 +47,7 @@ public class RandomGenerate : MonoBehaviour
                 temp.transform.localPosition = new Vector3(newX + min_x , transform.localPosition.y + 0.2f , transform.localPosition.z);
                 temp.transform.localRotation = objects[randomObject].transform.localRotation;
 
-                //current_bricks.Add(temp);
-                //current_bricks.RemoveAll(x => x == null);
             }
-
-            // foreach(var brick in current_bricks)
-            // {
-            //     Break temp = brick.GetComponent<Break>();
-            //     temp.newPos = new Vector3(brick.transform.localPosition.x, 
-            //                                                 brick.transform.localPosition.y,
-            //                                                 brick.transform.localPosition.z + 0.68f);
-
-            // }
 
             lastTime = Time.time;
         }

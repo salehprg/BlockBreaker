@@ -30,11 +30,22 @@ public class Movement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
 
+        if(Mathf.Abs(x) > 0)
+        {
+            Move(x < 0);
+        }
+        
+    }
+
+    public void Move(bool left)
+    {
+        int x = left ? -1 : 1;
+
         Vector3 movement = new Vector3(x, 0, 0);
         movement = Vector3.ClampMagnitude(movement, 1);
 
-        if((!leftlimit && x < 0) || 
-            (!rightLimit && x > 0))
+        if((!leftlimit && left) || 
+            (!rightLimit && !left))
         {
             transform.Translate(movement * -speed_x * Time.deltaTime);
         }
