@@ -15,28 +15,87 @@ public class ForceAcceptAll : CertificateHandler
 }
 
 public class APIHelper
-{
-    public delegate void MyDelegate(string data_str);
+{  
+    static string baseURL = "https://localhost:5001";
+
+    public delegate void MyDelegate(LicenseModel licenseModel ,bool success);
+    public delegate void ScoreDelegate(ScoreModel scoreModel ,bool success);
+    public delegate void HighScoreDelegate(List<ScoreModel> scoreModels ,bool success);
 
     public static IEnumerator PostLicenseInfo(LicenseModel licenseModel , MyDelegate callback)
     {
-        string json_data = JsonConvert.SerializeObject(licenseModel);
+        WWWForm form = new WWWForm();
+        form.AddField("referralCode", licenseModel.referralCode);
+        form.AddField("guid", licenseModel.guid);
 
-        using (UnityWebRequest webRequest = UnityWebRequest.Post($"http://localhost:5000/Referral" , json_data))
+        if(licenseModel.nickname != null)
+            form.AddField("nickname", licenseModel.nickname);
+
+        if(licenseModel.securityStamp != null)
+            form.AddField("securityStamp", licenseModel.securityStamp);
+
+        using (UnityWebRequest webRequest = UnityWebRequest.Post($"{baseURL}/Referral" , form))
         {
             webRequest.certificateHandler = new ForceAcceptAll();
-
-            webRequest.SetRequestHeader("Content-Type", "application/json");
 
             yield return webRequest.SendWebRequest();           
 
             switch (webRequest.result)
             { 
                 case UnityWebRequest.Result.Success:
-                    callback.Invoke(webRequest.downloadHandler.text);
+                    callback.Invoke(licenseModel , true);
                     break;
                 default :
-                  callback.Invoke(webRequest.error);
+                    Debug.Log(webRequest.downloadHandler.text);
+                  callback.Invoke(licenseModel , false);
+                  break;
+            }
+        }
+    }
+
+    public static IEnumerator SubmitScore(ScoreModel scoreModel , ScoreDelegate callback)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("phone_guid", scoreModel.phone_guid);
+        form.AddField("score", scoreModel.score.ToString());
+
+        using (UnityWebRequest webRequest = UnityWebRequest.Post($"{baseURL}/Score" , form))
+        {
+            webRequest.certificateHandler = new ForceAcceptAll();
+
+            yield return webRequest.SendWebRequest();           
+
+            switch (webRequest.result)
+            { 
+                case UnityWebRequest.Result.Success:
+                    callback.Invoke(scoreModel , true);
+                    break;
+                default :
+                  callback.Invoke(scoreModel , false);
+                  break;
+            }
+        }
+    }
+
+    public static IEnumerator HighScores(string guid , HighScoreDelegate callback)
+    {
+        Debug.Log(guid);
+        using (UnityWebRequest webRequest = UnityWebRequest.Get($"{baseURL}/Score?guid={guid}"))
+        {
+            webRequest.certificateHandler = new ForceAcceptAll();
+
+            yield return webRequest.SendWebRequest();           
+
+            switch (webRequest.result)
+            { 
+                case UnityWebRequest.Result.Success:
+                    string jsondata = webRequest.downloadHandler.text;
+                    List<ScoreModel> scoreModels = JsonConvert.DeserializeObject<List<ScoreModel>>(jsondata);
+
+                    callback.Invoke(scoreModels , true);
+                    break;
+                default :
+                  callback.Invoke(null , false);
                   break;
             }
         }

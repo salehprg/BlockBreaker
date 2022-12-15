@@ -6,26 +6,19 @@ class RSA
 {
     public static string Encrypt(string data)
     {
-        var publicKey = "MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgEmXDCIZDpNeOpGWyfaQqXhQdCk/"+
-                        "vZ6rm2OKHDTEKuYEz6t7GmU4Aj0PH+3AyCPjWZotu5+Ong1GjQ7f4DpMa07ikINQ"+
-                        "zzf2UvbPXVaaAaUKGZ2M+VG+iRv+9AGOfWNBScT4PTAz4Ix/hXHf7v7d8Lxj7wJf"+
-                        "x6PfObDeRvwzoXHLAgMBAAE=";
+        var publicKey = "<RSAKeyValue><Modulus>SZcMIhkOk146kZbJ9pCpeFB0KT+9nqubY4ocNMQq5gTPq3saZTgCPQ8f7cDII+NZmi27n46eDUaNDt/gOkxrTuKQg1DPN/ZS9s9dVpoBpQoZnYz5Ub6JG/70AY59Y0FJxPg9MDPgjH+Fcd/u/t3wvGPvAl/Ho985sN5G/DOhccs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
       
         using ( var rsa = new RSACryptoServiceProvider(1024))
         {
             try
             {
-                int byteread = 0;
-
-                rsa.ImportRSAPublicKey(Encoding.UTF8.GetBytes(publicKey) , out byteread);
+                rsa.FromXmlString(publicKey);
                 
                 var encryptedData = rsa.Encrypt(Encoding.UTF8.GetBytes(data), true);
                 
                 var base64Encrypted = Convert.ToBase64String(encryptedData);
                 
-                
                 return base64Encrypted;
-                
             }
             finally
             {

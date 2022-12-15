@@ -74,6 +74,8 @@ public class Break : MonoBehaviour
 
         this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
 
+        Camera.main.GetComponent<CollisionCounterScript>().addScore(amount);
+        
         if (hp <= 0)
         {
             GameObject.Instantiate(exp,transform.position,new Quaternion());
