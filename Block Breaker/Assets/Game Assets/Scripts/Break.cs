@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Break : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Break : MonoBehaviour
     public List<GameObject> powerups;
     public GameObject chestBox;
 
+    Transform game_plane;
 
 
     int currentHit = 0;
@@ -29,6 +31,8 @@ public class Break : MonoBehaviour
         
     void Start()
     {
+        game_plane = transform.parent.parent;
+
         int itemrnd = Random.Range(0,100);
 
         if(itemrnd < chance_drop * 100)
@@ -79,6 +83,15 @@ public class Break : MonoBehaviour
         if (hp <= 0)
         {
             GameObject.Instantiate(exp,transform.position,new Quaternion());
+            if(hasItem)
+            {
+                int index = Random.Range(0,powerups.Count);
+                var temp_go = GameObject.Instantiate(powerups[index],transform.position , new Quaternion() , game_plane);
+
+                temp_go.transform.localPosition = new Vector3(transform.localPosition.x , transform.localPosition.y + 0.2f , transform.localPosition.z);
+                temp_go.transform.localRotation = powerups[index].transform.localRotation;
+            }
+
             Destroy(gameObject);
         }
     }
@@ -88,16 +101,5 @@ public class Break : MonoBehaviour
     {
         return b1 + (s-a1)*(b2-b1)/(a2-a1);
     }
-
-    private void OnDestroy() 
-    {
-        if(hasItem)
-        {
-            int index = Random.Range(0,powerups.Count);
-            var temp = GameObject.Instantiate(powerups[index],transform.position , new Quaternion() , transform.parent);
-
-            temp.transform.localPosition = new Vector3(transform.localPosition.x , transform.localPosition.y + 0.2f , transform.localPosition.z);
-            temp.transform.localRotation = powerups[index].transform.localRotation;
-        }
-    }
+    
 }

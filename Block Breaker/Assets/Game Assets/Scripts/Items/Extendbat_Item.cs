@@ -7,6 +7,7 @@ public class Extendbat_Item : Item
 
     public GameObject bat;
     public float maxExtend;
+    public float extendAmount;
     
     public override void _Start()
     {
@@ -21,9 +22,9 @@ public class Extendbat_Item : Item
         
         bat = GameObject.FindGameObjectWithTag("bat");
         
-        if(bat.transform.localScale.x + 0.15f <= maxExtend)
+        if(bat.transform.localScale.x + extendAmount <= maxExtend)
         {
-            bat.transform.localScale = new Vector3(bat.transform.localScale.x + 0.15f , bat.transform.localScale.y,
+            bat.transform.localScale = new Vector3(bat.transform.localScale.x + extendAmount , bat.transform.localScale.y,
                                                     bat.transform.localScale.z);
         }
     }

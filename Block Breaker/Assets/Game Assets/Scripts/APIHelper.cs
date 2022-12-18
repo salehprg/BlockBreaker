@@ -18,7 +18,7 @@ public class APIHelper
 {  
     static string baseURL = "https://localhost:5001";
 
-    public delegate void MyDelegate(LicenseModel licenseModel ,bool success);
+    public delegate void MyDelegate(LicenseModel licenseModel ,bool success , string meesage);
     public delegate void ScoreDelegate(ScoreModel scoreModel ,bool success);
     public delegate void HighScoreDelegate(List<ScoreModel> scoreModels ,bool success);
 
@@ -43,11 +43,10 @@ public class APIHelper
             switch (webRequest.result)
             { 
                 case UnityWebRequest.Result.Success:
-                    callback.Invoke(licenseModel , true);
+                    callback.Invoke(licenseModel , true , webRequest.downloadHandler.text);
                     break;
                 default :
-                    Debug.Log(webRequest.downloadHandler.text);
-                  callback.Invoke(licenseModel , false);
+                  callback.Invoke(licenseModel , false , webRequest.downloadHandler.text);
                   break;
             }
         }

@@ -21,11 +21,6 @@ public class Ball : MonoBehaviour
         
     }
 
-    private void OnDestroy() {
-        var temp = GameObject.Instantiate(deadParticle , transform.position , new Quaternion());
-        Destroy(temp , 5);
-    }
-
     private void OnCollisionEnter(Collision other) 
     {
         if (other.gameObject.tag == "brick")
@@ -36,6 +31,8 @@ public class Ball : MonoBehaviour
         }
         else if(other.gameObject.tag == "endwall")
         {
+            var temp = GameObject.Instantiate(deadParticle , transform.position , new Quaternion());
+            Destroy(temp , 5);
             Destroy(this.gameObject);
         }
         else if(other.gameObject.tag == "shield")

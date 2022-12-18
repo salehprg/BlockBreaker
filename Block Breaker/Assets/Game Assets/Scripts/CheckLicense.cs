@@ -9,11 +9,16 @@ public class CheckLicense : MonoBehaviour
     public bool LicenseValid = false;
     public Canvas UI;
     public GameObject game;
+    public GameObject loading;
+    public RectTransform canvas;
+    public TMPro.TMP_InputField input_license;
+    public TMPro.TMP_InputField input_nickname;
+    GameObject _loading;
 
 
     void Awake()
     {
-        if(SceneManager.GetActiveScene().name == "SampleScene")
+        if(SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "MainMenu")
         {
             game.SetActive(false);
             UI.gameObject.SetActive(false);
@@ -66,25 +71,26 @@ public class CheckLicense : MonoBehaviour
             }
         }
     }
-
     
-    public void SubmitLicense(TMPro.TMP_InputField input)
+    public void SubmitLicense()
     {
+        _loading = Instantiate(loading , canvas.transform);
+
         LicenseModel licenseModel = new LicenseModel();
         
-        string license = input.text;
+        string license = input_license.text;
 
         licenseModel.referralCode = RSA.Encrypt(license);
         licenseModel.guid = System.Guid.NewGuid().ToString();
         licenseModel.securityStamp = DateTime.Now.ToString();
-        licenseModel.nickname = "Test";
+        licenseModel.nickname = input_nickname.text;
 
         APIHelper.MyDelegate del = DelegateMethod;   
         
         StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
     }
     
-    public void OnCheckLicense(LicenseModel licenseModel , bool success)
+    public void OnCheckLicense(LicenseModel licenseModel , bool success , string message)
     {
         if(!success && SceneManager.GetActiveScene().name != "Login")
         {
@@ -92,25 +98,32 @@ public class CheckLicense : MonoBehaviour
         }
         else if(success && SceneManager.GetActiveScene().name == "Login")
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainMenu");
         }
         else
         {
             LicenseValid = true;
-            UI?.gameObject.SetActive(true);
-            game?.SetActive(true);
+            if (UI != null) UI.gameObject.SetActive(true);
+            if (game != null) game.SetActive(true);
         }
     }
 
-    public void DelegateMethod(LicenseModel licenseModel , bool success)
+    public void DelegateMethod(LicenseModel licenseModel , bool success , string message)
     {
         if(success)
         {
+            Destroy(_loading);
             PlayerPrefs.SetString("guid" , licenseModel.guid );
             PlayerPrefs.SetString("code" , licenseModel.referralCode );
+            PlayerPrefs.SetString("nickname" , licenseModel.nickname );
             PlayerPrefs.Save();
 
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            Destroy(_loading , 2);
+            _loading.GetComponentInChildren<TMPro.TMP_Text>().text = message;
         }
     }
 }

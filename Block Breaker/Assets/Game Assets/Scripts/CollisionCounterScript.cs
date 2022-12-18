@@ -10,6 +10,6 @@ public class CollisionCounterScript : MonoBehaviour
     {
         score += _score;
 
-        text.text = score.ToString();
+        text.text = $"Score : {score.ToString()}";
     }
 }
