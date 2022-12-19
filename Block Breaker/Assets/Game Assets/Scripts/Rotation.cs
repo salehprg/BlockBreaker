@@ -33,7 +33,6 @@ public class Rotation : MonoBehaviour
         }
         else if(Ball == null)
         {
-            print("game Over");
             var score = Camera.main.GetComponent<CollisionCounterScript>().score;
             PlayerPrefs.SetInt("score" , score);
             Camera.main.GetComponent<ScoreBorads>().SubmitScore(score);

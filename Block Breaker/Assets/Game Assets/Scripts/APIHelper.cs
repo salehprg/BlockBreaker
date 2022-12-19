@@ -78,7 +78,6 @@ public class APIHelper
 
     public static IEnumerator HighScores(string guid , HighScoreDelegate callback)
     {
-        Debug.Log(guid);
         using (UnityWebRequest webRequest = UnityWebRequest.Get($"{baseURL}/Score?guid={guid}"))
         {
             webRequest.certificateHandler = new ForceAcceptAll();

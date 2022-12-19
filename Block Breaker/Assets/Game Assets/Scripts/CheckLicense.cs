@@ -23,8 +23,6 @@ public class CheckLicense : MonoBehaviour
             game.SetActive(false);
             UI.gameObject.SetActive(false);
 
-            print("Checking License");
-            
             string license = PlayerPrefs.GetString("code");
             string guid = PlayerPrefs.GetString("guid");
 
@@ -53,8 +51,6 @@ public class CheckLicense : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Login")
         {
-            print("Checking License");
-            
             string license = PlayerPrefs.GetString("code");
             string guid = PlayerPrefs.GetString("guid");
 
