@@ -13,6 +13,7 @@ TagManager:
   - powers
   - Rightwall
   - Leftwall
+  - generators
   layers:
   - Default
   - TransparentFX

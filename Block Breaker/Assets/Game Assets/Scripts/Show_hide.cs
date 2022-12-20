@@ -11,10 +11,11 @@ public class Show_hide : MonoBehaviour
     public GameObject _explode1;
     public AudioClip _audio2;
     public GameObject _explode2;
-    // Start is called before the first frame update
+    
+    CheckLicense checkLicense;
     void Start()
     {
-
+        checkLicense = Camera.main.GetComponent<CheckLicense>();
     }
 
     public void audio1()
@@ -42,6 +43,9 @@ public class Show_hide : MonoBehaviour
 
     public void Show()
     {
+        if(!checkLicense.LicenseValid)
+            return;
+            
         extball.enabled=true;
         bricks.SetActive(true);
     }

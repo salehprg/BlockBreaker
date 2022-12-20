@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour
         {
             BrickCollisionCount++;
             brickTouchEvent?.Invoke();
-            other.gameObject.GetComponent<Break>().Damage(1);
+            other.gameObject.GetComponent<Break>().Damage(3);
         }
         else if(other.gameObject.tag == "endwall")
         {

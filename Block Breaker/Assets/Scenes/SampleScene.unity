@@ -2578,8 +2578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4df3d5a39c1b04e89d54624907827c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal_speed_x: 8
-  speed_x: 8
+  normal_speed_x: 6
+  speed_x: 6
   min_x: -4.8
   max_x: 4.8
   disableTimer: 0
@@ -5964,8 +5964,8 @@ MonoBehaviour:
   LicenseValid: 0
   UI: {fileID: 1069176298}
   game: {fileID: 113988649}
-  loading: {fileID: 0}
-  canvas: {fileID: 0}
+  loading: {fileID: 4485840459367499963, guid: 217892a7b5a23434b9482866e064ec41, type: 3}
+  canvas: {fileID: 1069176299}
   input_license: {fileID: 0}
   input_nickname: {fileID: 0}
 --- !u!114 &963194233
@@ -6965,7 +6965,7 @@ GameObject:
   - component: {fileID: 1091429759}
   m_Layer: 0
   m_Name: Generate
-  m_TagString: Untagged
+  m_TagString: generators
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7002,6 +7002,7 @@ MonoBehaviour:
   column_count: 11
   obj_per_row: 1
   generate_delay: 15
+  Brick: {fileID: 3740714997588072581, guid: a899e262aacecd540b71cf36b0e4c3a8, type: 3}
   objects:
   - {fileID: 3320045177433857757, guid: 730142523ae33484f90edefc4c5106cc, type: 3}
   - {fileID: 6029599813629050837, guid: 6eae19bce69330f43bc0b87b244a9be9, type: 3}
@@ -7011,6 +7012,7 @@ MonoBehaviour:
   - {fileID: 2750846828354425296, guid: 3f71d39120264bf418b3928691f09fde, type: 3}
   - {fileID: 2221546185187079852, guid: 71693926035a43a4a8a7978792b9e6cd, type: 3}
   distance: 0
+  bricks_empty_locations: []
 --- !u!4 &1111177587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331851027985091452, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}

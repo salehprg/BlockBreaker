@@ -17,6 +17,7 @@ public class Break : MonoBehaviour
     public List<GameObject> powerups;
     public GameObject chestBox;
 
+    public RandomGenerate randomGenerate;
     Transform game_plane;
 
 
@@ -57,6 +58,8 @@ public class Break : MonoBehaviour
         Color temp = Color.HSVToRGB(h , s , v);
 
         this.GetComponent<Renderer>().material.SetColor("_Color" , temp);
+
+        randomGenerate = GameObject.FindGameObjectWithTag("generators").GetComponent<RandomGenerate>();
     }
 
 
@@ -92,6 +95,8 @@ public class Break : MonoBehaviour
                 temp_go.transform.localRotation = powerups[index].transform.localRotation;
             }
 
+            var location = GameObject.Instantiate(new GameObject($"Location{this.name}") , transform.position , transform.rotation , transform.parent);
+            randomGenerate.CheckEmptyLocations(location.transform);
             Destroy(gameObject);
         }
     }
