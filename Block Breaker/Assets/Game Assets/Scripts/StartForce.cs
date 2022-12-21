@@ -4,14 +4,19 @@ using UnityEngine;
 public class StartForce : MonoBehaviour
 {
     public Vector3 minForce , maxForce;
+    public Vector3 randomForce{
+        get {
+            return new Vector3(Random.Range(minForce.x , maxForce.x) , 
+                                        0,
+                                        Random.Range(minForce.z , maxForce.z));
+        }
+    }
     void Start()
     {
-        Vector3 randomForce = new Vector3(Random.Range(minForce.x , maxForce.x) , 
-                                        Random.Range(minForce.y , maxForce.y),
-                                        Random.Range(minForce.z , maxForce.z));
+        // Vector3 _randomForce = randomForce;
                                         
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        rigidbody.AddForce(randomForce, ForceMode.Impulse);
-        rigidbody.AddTorque(randomForce , ForceMode.Impulse);
+        // Rigidbody rigidbody = GetComponent<Rigidbody>();
+        // rigidbody.AddForce(randomForce, ForceMode.Impulse);
+        // rigidbody.AddTorque(randomForce , ForceMode.Impulse);
     }
 }

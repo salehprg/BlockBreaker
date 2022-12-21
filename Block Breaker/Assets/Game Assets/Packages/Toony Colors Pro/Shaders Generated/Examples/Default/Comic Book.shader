@@ -1,5 +1,5 @@
 ﻿// Toony Colors Pro+Mobile 2
-// (c) 2014-2019 Jean Moreno
+// (c) 2014-2020 Jean Moreno
 
 Shader "Toony Colors Pro 2/Examples/Default/Comic Book"
 {
@@ -108,6 +108,7 @@ Shader "Toony Colors Pro 2/Examples/Default/Comic Book"
 	#if TCP2_OUTLINE_TEXTURED
 			float3 texlod : TEXCOORD1;
 	#endif
+			UNITY_VERTEX_OUTPUT_STEREO
 		};
 
 		float _Outline;
@@ -125,6 +126,8 @@ Shader "Toony Colors Pro 2/Examples/Default/Comic Book"
 		v2f TCP2_Outline_Vert(a2v v)
 		{
 			v2f o;
+			UNITY_SETUP_INSTANCE_ID(v);
+			UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 	#if UNITY_VERSION >= 550
 			//GPU instancing support
@@ -166,7 +169,7 @@ Shader "Toony Colors Pro 2/Examples/Default/Comic Book"
 
 	#ifdef TCP2_OUTLINE_CONST_SIZE
 			//Camera-independent outline size
-			float dist = distance(mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 0)).xyz, v.vertex.xyz);
+			float dist = distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex));
 			#define SIZE	dist
 	#else
 			#define SIZE	1.0
@@ -292,7 +295,10 @@ Shader "Toony Colors Pro 2/Examples/Default/Comic Book"
 			#define SKETCH_RGB	sketch
 			fixed sketch = tex2D(_SketchTex, s.ScreenUVs).a;
 			sketch = smoothstep(sketch - 0.2, sketch, clamp(ramp, _SketchHalftoneMin, _SketchHalftoneMax));	//Gradient halftone
-		#if !defined(UNITY_PASS_FORWARDBASE)
+		// Note: we consider that a directional light with a cookie is supposed to be the main one (even though Unity renders it as an additional light).
+		// Thus when using a main directional light AND another directional light with a cookie, then the shadow color might be applied twice.
+		// You can remove the DIRECTIONAL_COOKIE check below the prevent that.
+		#if !defined(UNITY_PASS_FORWARDBASE) && !defined(DIRECTIONAL_COOKIE)
 			_SColor = fixed4(0,0,0,1);
 		#endif
 			_SColor = lerp(_HColor, _SColor, _SColor.a);	//Shadows intensity through alpha

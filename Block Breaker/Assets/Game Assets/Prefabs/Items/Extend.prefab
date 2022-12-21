@@ -168,5 +168,5 @@ MonoBehaviour:
   movement_effect: {fileID: 0}
   speed: 0.1
   bat: {fileID: 0}
-  maxExtend: 0.8
+  maxExtend: 1.1
   extendAmount: 0.1

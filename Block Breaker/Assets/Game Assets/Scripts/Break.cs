@@ -85,7 +85,8 @@ public class Break : MonoBehaviour
         
         if (hp <= 0)
         {
-            GameObject.Instantiate(exp,transform.position,new Quaternion());
+            var particle = GameObject.Instantiate(exp,transform.position,new Quaternion());
+            Destroy(particle.gameObject , 2);
             if(hasItem)
             {
                 int index = Random.Range(0,powerups.Count);
