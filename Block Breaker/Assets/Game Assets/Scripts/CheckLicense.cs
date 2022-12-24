@@ -18,104 +18,73 @@ public class CheckLicense : MonoBehaviour
 
     void Awake()
     {
-        // if(SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "MainMenu")
-        // {
-        //     game.SetActive(false);
-        //     UI.gameObject.SetActive(false);
-
-        //     string license = PlayerPrefs.GetString("code");
-        //     string guid = PlayerPrefs.GetString("guid");
-
-        //     if(string.IsNullOrEmpty(license))
-        //     {
-        //         try
-        //         {
-        //             SceneManager.LoadScene("Login");
-        //         }
-        //         catch
-        //         {
-        //             Application.Quit();
-        //         }
-        //     }
-
-        //     LicenseModel licenseModel = new LicenseModel();
-        
-        //     licenseModel.referralCode = license;
-        //     licenseModel.guid = guid;
-
-        //     APIHelper.MyDelegate del = OnCheckLicense;   
-
-        //     StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
-        
-        // }
-
-        // if(SceneManager.GetActiveScene().name == "Login")
-        // {
-        //     string license = PlayerPrefs.GetString("code");
-        //     string guid = PlayerPrefs.GetString("guid");
-            
-        //     if(!string.IsNullOrEmpty(license))
-        //     {
-        //         LicenseModel licenseModel = new LicenseModel();
-        
-        //         licenseModel.referralCode = license;
-        //         licenseModel.guid = guid;
-
-        //         APIHelper.MyDelegate del = OnCheckLicense;   
-
-        //         StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
-        //     }
-        // }
-
-        if(DateTime.Now > new DateTime(2022 , 12 , 22 , 20 , 00 , 00))
+        if(SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "MainMenu")
         {
-            _loading = Instantiate(loading , canvas.transform);
-            _loading.GetComponentInChildren<TMPro.TMP_Text>().text = "Your Free Trial Expired !";
-            Application.Quit();
+            game.SetActive(false);
+            UI.gameObject.SetActive(false);
+
+            string license = PlayerPrefs.GetString("code");
+            string guid = PlayerPrefs.GetString("guid");
+
+            if(string.IsNullOrEmpty(license))
+            {
+                try
+                {
+                    SceneManager.LoadScene("Login");
+                }
+                catch
+                {
+                    Application.Quit();
+                }
+            }
+
+            LicenseModel licenseModel = new LicenseModel();
+        
+            licenseModel.referralCode = license;
+            licenseModel.guid = guid;
+
+            APIHelper.MyDelegate del = OnCheckLicense;   
+
+            StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
+        
         }
-        else
+
+        if(SceneManager.GetActiveScene().name == "Login")
         {
-            LicenseValid = true;
-            if (UI != null) UI.gameObject.SetActive(true);
-            if (game != null) game.SetActive(true);
+            string license = PlayerPrefs.GetString("code");
+            string guid = PlayerPrefs.GetString("guid");
+            
+            if(!string.IsNullOrEmpty(license))
+            {
+                LicenseModel licenseModel = new LicenseModel();
+        
+                licenseModel.referralCode = license;
+                licenseModel.guid = guid;
+
+                APIHelper.MyDelegate del = OnCheckLicense;   
+
+                StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
+            }
         }
     }
     
     public void SubmitLicense()
     {
-        // _loading = Instantiate(loading , canvas.transform);
+        _loading = Instantiate(loading , canvas.transform);
 
-        // LicenseModel licenseModel = new LicenseModel();
+        LicenseModel licenseModel = new LicenseModel();
         
-        // string license = input_license.text;
+        string license = input_license.text;
 
-        // licenseModel.referralCode = RSA.Encrypt(license);
-        // licenseModel.guid = System.Guid.NewGuid().ToString();
-        // licenseModel.securityStamp = DateTime.Now.ToString();
-        // licenseModel.nickname = input_nickname.text;
+        licenseModel.referralCode = RSA.Encrypt(license);
+        licenseModel.guid = System.Guid.NewGuid().ToString();
+        licenseModel.securityStamp = DateTime.Now.ToString();
+        licenseModel.nickname = input_nickname.text;
 
-        // APIHelper.MyDelegate del = DelegateMethod;   
+        APIHelper.MyDelegate del = DelegateMethod;   
         
-        // StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
+        StartCoroutine(APIHelper.PostLicenseInfo(licenseModel , del));
 
-        if(input_license.text == "DEMO")
-        {
-            LicenseModel licenseModel = new LicenseModel();
-            
-            string license = input_license.text;
-
-            licenseModel.referralCode = RSA.Encrypt(license);
-            licenseModel.guid = System.Guid.NewGuid().ToString();
-            licenseModel.securityStamp = DateTime.Now.ToString();
-            licenseModel.nickname = input_nickname.text;
-
-            PlayerPrefs.SetString("guid" , licenseModel.guid );
-            PlayerPrefs.SetString("code" , licenseModel.referralCode );
-            PlayerPrefs.SetString("nickname" , licenseModel.nickname );
-            PlayerPrefs.Save();
-
-            SceneManager.LoadScene("MainMenu");
-        }
     }
     
     public void OnCheckLicense(LicenseModel licenseModel , bool success , string message)
