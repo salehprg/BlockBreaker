@@ -4,6 +4,7 @@ using UnityEngine;
 public class StartForce : MonoBehaviour
 {
     public Vector3 minForce , maxForce;
+    public Rotation rotation;
     public Vector3 randomForce{
         get {
             return new Vector3(Random.Range(minForce.x , maxForce.x) , 
@@ -13,10 +14,6 @@ public class StartForce : MonoBehaviour
     }
     void Start()
     {
-        // Vector3 _randomForce = randomForce;
-                                        
-        // Rigidbody rigidbody = GetComponent<Rigidbody>();
-        // rigidbody.AddForce(randomForce, ForceMode.Impulse);
-        // rigidbody.AddTorque(randomForce , ForceMode.Impulse);
+        rotation.enabled = true;
     }
 }
