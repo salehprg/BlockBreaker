@@ -13,6 +13,7 @@ public class CheckLicense : MonoBehaviour
     public RectTransform canvas;
     public TMPro.TMP_InputField input_license;
     public TMPro.TMP_InputField input_nickname;
+    public TMPro.TextMeshProUGUI deviceId;
     GameObject _loading;
 
 
@@ -53,6 +54,15 @@ public class CheckLicense : MonoBehaviour
         {
             string license = PlayerPrefs.GetString("code");
             string guid = PlayerPrefs.GetString("guid");
+
+            if(!string.IsNullOrEmpty(guid))
+            {
+                deviceId.text = guid;
+            }
+            else
+            {
+                deviceId.text = SystemInfo.deviceUniqueIdentifier;
+            }
             
             if(!string.IsNullOrEmpty(license))
             {
@@ -77,7 +87,7 @@ public class CheckLicense : MonoBehaviour
         string license = input_license.text;
 
         licenseModel.referralCode = RSA.Encrypt(license);
-        licenseModel.guid = System.Guid.NewGuid().ToString();
+        licenseModel.guid = SystemInfo.deviceUniqueIdentifier;
         licenseModel.securityStamp = DateTime.Now.ToString();
         licenseModel.nickname = input_nickname.text;
 
