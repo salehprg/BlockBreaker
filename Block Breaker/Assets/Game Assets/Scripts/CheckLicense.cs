@@ -99,16 +99,19 @@ public class CheckLicense : MonoBehaviour
     
     public void OnCheckLicense(LicenseModel licenseModel , bool success , string message)
     {
+        print(message);
         if(!success && SceneManager.GetActiveScene().name != "Login")
         {
             SceneManager.LoadScene("Login");
         }
         else if(success && SceneManager.GetActiveScene().name == "Login")
         {
+            PlayerPrefs.SetString("nickname" , message );
             SceneManager.LoadScene("MainMenu");
         }
-        else
+        else if(success)
         {
+            PlayerPrefs.SetString("nickname" , message );
             LicenseValid = true;
             if (UI != null) UI.gameObject.SetActive(true);
             if (game != null) game.SetActive(true);
@@ -120,6 +123,9 @@ public class CheckLicense : MonoBehaviour
         if(success)
         {
             Destroy(_loading);
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            
             PlayerPrefs.SetString("guid" , licenseModel.guid );
             PlayerPrefs.SetString("code" , licenseModel.referralCode );
             PlayerPrefs.SetString("nickname" , licenseModel.nickname );

@@ -16,7 +16,7 @@ public class ForceAcceptAll : CertificateHandler
 
 public class APIHelper
 {  
-    static string baseURL = "https://95.217.176.40:5001";
+    static string baseURL = "https://localhost:5001";
 
     public delegate void MyDelegate(LicenseModel licenseModel ,bool success , string meesage);
     public delegate void ScoreDelegate(ScoreModel scoreModel ,bool success);
