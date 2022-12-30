@@ -55,7 +55,15 @@ public class Ball : MonoBehaviour
             myrigidbody.AddForce((-velocity) * Time.deltaTime , ForceMode.Impulse);
         }
     }
-
+    
+    private void OnCollisionStay(Collision other) {
+        if (other.gameObject.tag == "brick")
+        {
+            BrickCollisionCount++;
+            brickTouchEvent?.Invoke();
+            other.gameObject.GetComponent<Break>().Damage(1);
+        }
+    }
     private void OnCollisionEnter(Collision other) 
     {
         if (other.gameObject.tag == "brick")
