@@ -7021,7 +7021,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 321feb9f51af885488e5ed433aecd467, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11470,6 +11470,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 113988651}
     m_Modifications:
+    - target: {fileID: 1111177594, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111177594, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091424, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -11492,7 +11500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091450, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: maxForce.z
-      value: -4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091450, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: minForce.x
@@ -11500,7 +11508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091450, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: minForce.z
-      value: -5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4331851027985091452, guid: f2f641324e7f51940bef37bb3d2cc7f0, type: 3}
       propertyPath: m_RootOrder
